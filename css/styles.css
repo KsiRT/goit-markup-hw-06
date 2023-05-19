@@ -833,6 +833,7 @@ img {
   border: none;
   cursor: pointer;
   transition: background-color var(--common-transition);
+  margin-top: 24px;
 }
 
 .modal-send:hover,
