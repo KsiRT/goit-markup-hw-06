@@ -9,7 +9,7 @@
   --subtle-text: #8e8f99;
   --green: #31d0aa;
   --dairy: #fcfcfc;
-  --common-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --common-transition: 950ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /**==========================  Сommon classes =====================*/
@@ -21,6 +21,10 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+* {
+  box-sizing: border-box;
 }
 .list {
   list-style: none;
@@ -703,6 +707,7 @@ img {
   top: 50%;
   left: 9px;
   transform: translateY(-50%);
+  transition: fill var(--common-transition);
 }
 
 .mod-input {
@@ -712,6 +717,8 @@ img {
   height: 40px;
   padding-left: 30px;
   outline: none;
+  transition: border-color var(--common-transition);
+  font-size: 14px;
 }
 
 .modal-text {
@@ -745,25 +752,73 @@ img {
   height: 120px;
   outline: none;
   margin-bottom: 16px;
+  padding: 8px 16px;
+  font-size: 12px;
 }
 .mod-comment:focus {
   border-color: var(--pressed-state);
 }
 
 .mod-comment::placeholder {
-  padding: 8px 16px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 0.4);
 }
+/* *************************************************************** */
 
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.tick-wrap {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--common-transition),
+    border var(--common-transition);
+}
+.checkbox-tick {
+  fill: var(--white-bg);
+  opacity: 0;
+  transition: opacity var(--common-transition);
+}
+.checkbox:checked + .tick-wrap {
+  background-color: var(--primary-brand);
+  border: 1px solid var(--primary-brand);
+}
+
+.checkbox:checked + .tick-wrap > .checkbox-tick {
+  opacity: 1;
+}
+.checkbox:focus + .tick-wrap {
+  outline: 1px solid var(--primary-brand);
+}
+/* *************************************************************** */
 .priv-policy {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  margin-bottom: 24px;
 }
 
 .modal-send {
@@ -776,4 +831,11 @@ img {
   color: var(--white-bg);
   margin: 0 auto;
   border: none;
+  cursor: pointer;
+  transition: background-color var(--common-transition);
+}
+
+.modal-send:hover,
+.modal-send:focus {
+  background-color: var(--pressed-state);
 }

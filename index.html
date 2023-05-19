@@ -487,20 +487,35 @@
           <label>
             <span class="label-text">Comment</span>
             <div class="mod-input-wrap">
-              <input
-                type="text"
+              <textarea
                 name="mod-comment"
+                id="modal-comm"
                 class="mod-comment"
                 placeholder="Text input"
-              />
+              ></textarea>
             </div>
           </label>
-          <p class="priv-policy">
-            I accept the terms and conditions of the
-            <a href="#">Privacy Policy</a>
-          </p>
-          <button type="submit" class="modal-send">Send</button>
+          <label class="checkbox-label">
+            <input type="checkbox" class="checkbox" />
+            <span class="tick-wrap">
+              <svg width="10" height="8" class="checkbox-tick">
+                <use href="./images/icons.svg#icon-tick"></use>
+              </svg>
+            </span>
+            <span class="priv-policy">
+              I accept the terms and conditions of the
+              <a
+                href="https://youtu.be/dQw4w9WgXcQ"
+                rel="noopener noreferrer nofollow"
+                class="privacy-link"
+                target="_blank"
+                >Privacy Policy</a
+              >.
+              <!-- Check this ^ out -->
+            </span>
+          </label>
         </form>
+        <button type="submit" class="modal-send">Send</button>
       </div>
     </div>
     <script src="./js/modal.js"></script>
